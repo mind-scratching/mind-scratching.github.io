@@ -1,0 +1,71 @@
+/* Universal Document Style */
+
+a {
+  color: #0645AD;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+body {
+  font-family: sans-serif;
+  image-rendering: pixelated;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+nav {
+  background-color: #EEE;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  overflow-x: hidden;
+  width: 160px;
+  z-index: 1;
+}
+
+nav a.nav {
+  padding: 6px 8px 6px 16px;
+  font-size: 15px;
+  display: block;
+}
+
+nav img {
+  height: 120px;
+  left: 0;
+  padding: 20px;
+  top: 0;
+  width: 120px;
+}
+
+p {
+  font-size: 20px;
+}
+
+
+/* Classified Tag Style */
+
+a.nav {
+  font-size: 20px;
+}
+
+div.article {
+  padding-left: 200px;
+}
+
+p.notice {
+  bottom: 0px;
+  font-size: 16px;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+}

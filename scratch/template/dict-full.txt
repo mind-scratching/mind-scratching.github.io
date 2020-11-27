@@ -1,0 +1,45 @@
+when flag clicked
+delete all of [dict v]
+
+define get (key)
+repeat until <(get-output)=(0)>
+end
+set [get-index v] to (1)
+forever
+	if <(get-index)>(length of [dict v])> then
+		set [get-output v] to (-1)
+		stop [this script v]
+	end
+	if <(item (get-index) of [dict v])=(key)> then
+		set [get-output v] to (item ((get-index)+(1)) of [dict v])
+		stop [this script v]
+	end
+	change [get-index v] by (2)
+
+define set (key) (value)
+set [set-index v] to (1)
+forever
+	if <(set-index)>(length of [dict v])> then
+		add (key) to [dict v]
+		add (value) to [dict v]
+		stop [this script v]
+	end
+	if <(item (set-index) of [dict v])=(key)> then
+		replace item ((set-index)+(1)) of [dict v] with (value)
+		stop [this script v]
+	end
+	change [set-index v] by (2)
+
+
+define delete (key)
+set [delete-index v] to (1)
+forever
+	if <(delete-index)>(length of [dict v])> then
+		stop [this script v]
+	end
+	if <(item (delete-index) of [dict v])=(key)> then
+		delete (delete-index) of [dict v]
+		delete (delete-index) of [dict v]
+		stop [this script v]
+	end
+	change [delete-index v] by (2)
