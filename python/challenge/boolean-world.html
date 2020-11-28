@@ -1,0 +1,179 @@
+<!doctype html>
+
+<head>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../resource/google-prettify-monokai-theme.css">
+  <title>Boolean World</title>
+
+  <nav id="nav"></nav>
+  <script type="text/javascript" src="src/navigation.js"></script>
+</head>
+
+<body>
+  <div class="article">
+    <h1>Boolean World</h1>
+    <h2>System based on <code>True</code>s and <code>False</code>s</h2>
+
+    <p>
+      The basic unit of any computer data is binary digits, <code>0</code> or <code>1</code>. Although every data is stored with tons of binary digits, programmers don't work with them that much nowadays. What if we rebuild a system based on binary values?
+    </p>
+    <p>
+      In Python, boolean values, <code>True</code>s and <code>False</code>s, are more like binary digits. The challenge is to build common data types with only given <code>Boolean</code> class and <code>List</code> class
+    </p>
+
+    <pre class="prettyprint lang-python">
+      <code class="code">
+__all__ = [
+    'boolean',
+
+    'true',
+    'false',
+]
+
+
+class boolean:
+    __slots__ = ['value']
+
+    ### ----- Initialization Methods ----- ###
+    def __init__(self, value=False):
+        self.value = value
+
+    ### ----- Output Methods ----- ###
+    def __repr__(self):  # repr(x)
+        return 'true' if self else 'false'
+
+    __str__ = __repr__  # str(x)
+
+    ### ----- Comparison Methods ----- ###
+    def __lt__(self, other):  # x < y
+        if isinstance(other, (bool, boolean)):
+            if self:
+                return false
+            elif other:
+                return true
+            else:
+                return false
+        else:
+            return NotImplemented
+
+    def __le__(self, other):  # x <= y
+        if isinstance(other, (bool, boolean)):
+            if self:
+                if other:
+                    return true
+                else:
+                    return false
+            else:
+                return true
+        else:
+            return NotImplemented
+
+    def __eq__(self, other):  # x == y
+        if isinstance(other, (bool, boolean)):
+            if self:
+                if other:
+                    return true
+                else:
+                    return false
+            else:
+                if other:
+                    return false
+                else:
+                    return true
+        else:
+            return NotImplemented
+
+    def __ne__(self, other):  # x != y
+        if isinstance(other, (bool, boolean)):
+            if self:
+                if other:
+                    return false
+                else:
+                    return true
+            else:
+                if other:
+                    return true
+                else:
+                    return false
+        else:
+            return NotImplemented
+
+    def __gt__(self, other):  # x > y
+        if isinstance(other, (bool, boolean)):
+            if other:
+                return false
+            elif self:
+                return true
+            else:
+                return false
+        else:
+            return NotImplemented
+
+    def __ge__(self, other):  # x >= y
+        if isinstance(other, (bool, boolean)):
+            if other:
+                if self:
+                    return true
+                else:
+                    return false
+            else:
+                return true
+        else:
+            return NotImplemented
+
+    ### ----- Transformation Methods ----- ###
+    def __hash__(self):
+        return 1 if self.value else 0
+
+    def __bool__(self):
+        return True if self.value else False
+
+    ### ----- Calculation Methods ----- ###
+    def __and__(self, other):
+        if isinstance(other, (bool, boolean)):
+            if self:
+                if other:
+                    return true
+            return false
+        else:
+            return NotImplemented
+    __rand__ = __and__
+
+    def __xor__(self, other):
+        if isinstance(other, (bool, boolean)):
+            if self:
+                if other:
+                    return false
+                else:
+                    return true
+            else:
+                if other:
+                    return true
+                else:
+                    return false
+        else:
+            return NotImplemented
+    __rxor__ = __xor__
+
+    def __or__(self, other):
+        if isinstance(other, (bool, boolean)):
+            if self:
+                return true
+            elif other:
+                return true
+            else:
+                return false
+        else:
+            return NotImplemented
+    __ror__ = __or__
+
+
+true = boolean(True)
+false = boolean(False)
+      </code>
+    </pre>
+  </div>
+
+  <script src="src/code-fix.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+</body>

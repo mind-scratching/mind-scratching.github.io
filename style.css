@@ -22,6 +22,11 @@ h2 {
   font-size: 32px;
 }
 
+li {
+  font-size: 20px;
+  padding-bottom: 8px;
+}
+
 nav {
   background-color: #EEE;
   height: 100%;
@@ -33,39 +38,49 @@ nav {
   z-index: 1;
 }
 
-nav a.nav {
-  padding: 6px 8px 6px 16px;
-  font-size: 15px;
+nav a {
   display: block;
+  padding: 6px 8px 6px 16px;
 }
 
 nav img {
-  height: 120px;
+  height: 140px;
   left: 0;
-  padding: 20px;
+  padding: 10px;
   top: 0;
-  width: 120px;
+  width: 140px;
 }
 
 p {
   font-size: 20px;
 }
 
+pre {
+  background-color: #EEE;
+  font-size: 16px;
+}
+
+ul {
+  font-size: 20px;
+}
+
 
 /* Classified Tag Style */
 
-a.nav {
+nav a.logo {
+  padding: 0;
+}
+
+nav a.nav {
+  padding-left: 32px;
+  font-size: 16px;
+}
+
+nav a.title {
+  padding-left: 16px;
   font-size: 20px;
 }
 
 div.article {
   padding-left: 200px;
-}
-
-p.notice {
-  bottom: 0px;
-  font-size: 16px;
-  position: fixed;
-  text-align: center;
-  width: 100%;
 }
